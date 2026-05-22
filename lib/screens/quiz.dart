@@ -9,7 +9,7 @@ class HQFlutterQuizApp extends StatefulWidget {
 }
 
 class _HQFlutterQuizAppState extends State<HQFlutterQuizApp> {
-
+  final List<String> selectedAnswers = [];
   Widget ? activeScreen;
 
   @override
@@ -21,8 +21,13 @@ class _HQFlutterQuizAppState extends State<HQFlutterQuizApp> {
 
   void switchScreen() {
     setState(() {
-      activeScreen = const QuestionsScreen();
+      activeScreen = QuestionsScreen(onSelectAnswer: chooseAnswer,);
     });
+  }
+
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+    print(selectedAnswers);
   }
 
   @override
@@ -33,7 +38,7 @@ return MaterialApp(
         body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [ Color.fromARGB(166, 61, 117, 201), Color.fromARGB(255, 7, 60, 185)],
+              colors: [ Color.fromARGB(255, 4, 59, 142), Color.fromARGB(190, 76, 121, 225)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),

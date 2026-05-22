@@ -5,7 +5,9 @@ import 'package:hqflutterquiz/models/quiz_questions.dart';
 import 'package:hqflutterquiz/widgets/answer_button.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen({super.key, required this.onSelectAnswer,});
+
+  final void Function(String answer) onSelectAnswer;
 
   @override
   State<QuestionsScreen> createState() => _QuestionsScreenState();
@@ -18,7 +20,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
     // Handle the selected answer (e.g., check if it's correct, update score, etc.)
     // For now, we'll just print the selected answer to the console.
     print('Selected answer: $selectedAnswer');
-
+    widget.onSelectAnswer(selectedAnswer);
     // Move to the next question
     setState(() {
       if (currentQuestionIndex < questions.length) {
@@ -36,7 +38,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
     return SizedBox(
       width: double.infinity,
       child: Container(
-        margin: const EdgeInsets.all(20),
+        margin: const EdgeInsets.all(50),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -49,8 +51,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               //   fontWeight: FontWeight.bold,
               // ),
               style: GoogleFonts.lato(
-                color: const Color.fromARGB(255, 186, 209, 233),
-                fontSize: 20,
+                color: const Color.fromARGB(255, 191, 202, 213),
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
                 textStyle: const TextStyle(
                   shadows: [
