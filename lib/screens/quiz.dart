@@ -11,7 +11,7 @@ class HQFlutterQuizApp extends StatefulWidget {
 }
 
 class _HQFlutterQuizAppState extends State<HQFlutterQuizApp> {
-  List<String> selectedAnswers = [];
+  List<String> _selectedAnswers = [];
   Widget ? activeScreen;
 
   @override
@@ -28,14 +28,13 @@ class _HQFlutterQuizAppState extends State<HQFlutterQuizApp> {
   }
 
   void chooseAnswer(String answer) {
-    selectedAnswers.add(answer);
-    if(selectedAnswers.length == questions.length) {
+    _selectedAnswers.add(answer);
+    if(_selectedAnswers.length == questions.length) {
       setState(() {
-        selectedAnswers.clear();
-        activeScreen =  ResultScreen(startQuiz: switchScreen);
+        activeScreen =  ResultScreen(startQuiz: switchScreen, selectedAnswers: _selectedAnswers,);
+        _selectedAnswers = [];
       });
     }
-    print(selectedAnswers);
   }
 
   @override
