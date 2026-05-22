@@ -19,15 +19,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   void answerQuestion(String selectedAnswer) {
     // Handle the selected answer (e.g., check if it's correct, update score, etc.)
     // For now, we'll just print the selected answer to the console.
-    print('Selected answer: $selectedAnswer');
     widget.onSelectAnswer(selectedAnswer);
     // Move to the next question
     setState(() {
       if (currentQuestionIndex < questions.length) {
         currentQuestionIndex++;
-      } else {
-        // Handle the end of the quiz (e.g., show results, reset quiz, etc.)
-        print('Quiz completed!');
       }
     });
   }

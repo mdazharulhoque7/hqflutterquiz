@@ -16,7 +16,6 @@ class _HQFlutterQuizAppState extends State<HQFlutterQuizApp> {
 
   @override
   void initState() {
-    // TODO: implement initState
     activeScreen = WelcomeScreen(switchScreen);
     super.initState();
   }

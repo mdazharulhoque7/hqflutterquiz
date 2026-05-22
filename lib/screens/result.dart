@@ -11,7 +11,6 @@ class ResultScreen extends StatelessWidget {
   
   List<Map<String, Object>> get getSummaryData {
     List<Map<String, Object>> summary = [];
-    print('Selected answers: $selectedAnswers');
     for (var i = 0; i < selectedAnswers.length; i++) {
       summary.add({
         'question_index': i,
@@ -21,7 +20,6 @@ class ResultScreen extends StatelessWidget {
         'correctAnswer': questions[i].answers[0], // Replace with actual correct answer
       });
     }
-    print(summary);
     return summary;
   }
 

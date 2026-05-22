@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:hqflutterquiz/screens/result_summary/summary_item.dart';
 
 class ResultSummary extends StatelessWidget {
