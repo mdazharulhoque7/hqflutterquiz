@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hqflutterquiz/data/questions.dart';
 import 'package:hqflutterquiz/models/quiz_questions.dart';
 import 'package:hqflutterquiz/widgets/answer_button.dart';
@@ -12,7 +13,7 @@ class QuestionsScreen extends StatefulWidget {
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentQuestionIndex = 0;
-  
+
   void answerQuestion(String selectedAnswer) {
     // Handle the selected answer (e.g., check if it's correct, update score, etc.)
     // For now, we'll just print the selected answer to the console.
@@ -42,16 +43,33 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           children: [
             Text(
               currentQuestion.question,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 18,
+              // style: const TextStyle(
+              //   color: Colors.white,
+              //   fontSize: 18,
+              //   fontWeight: FontWeight.bold,
+              // ),
+              style: GoogleFonts.lato(
+                color: const Color.fromARGB(255, 186, 209, 233),
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
+                textStyle: const TextStyle(
+                  shadows: [
+                    Shadow(
+                      color: Color.fromARGB(255, 6, 34, 98),
+                      offset: Offset(2, 2),
+                      blurRadius: 3,
+                    ),
+                  ],
+                ),
               ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
             ...currentQuestion.getShuffledAnswers().map((answer) {
-              return AnswerButton(answerText: answer, onTap: () => answerQuestion(answer));
+              return AnswerButton(
+                answerText: answer,
+                onTap: () => answerQuestion(answer),
+              );
             }),
           ],
         ),
