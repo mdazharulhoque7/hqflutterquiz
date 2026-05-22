@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hqflutterquiz/widgets/answer_button.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -10,27 +11,35 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Text('The questions will go here!'),
-        const SizedBox(height: 30),
-        ElevatedButton(
-          onPressed: (){}, 
-          child: Text('Answer 1'),
-        ),
-        ElevatedButton(
-          onPressed: (){}, 
-          child: Text('Answer 2'),
-        ),
-        ElevatedButton(
-          onPressed: (){}, 
-          child: Text('Answer 3'),
-        ),
-        ElevatedButton(
-          onPressed: (){}, 
-          child: Text('Answer 4'),
-        ),
-      ],
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text('The questions will go here!'
+          , style: TextStyle(
+            fontSize: 24,
+            color: Colors.white,
+          ),),
+          const SizedBox(height: 30),
+          AnswerButton(
+            answerText: 'Answer 1',
+            onTap: () {},
+          ),
+          AnswerButton(
+            answerText: 'Answer 2',
+            onTap: () {},
+          ),
+          AnswerButton(
+            answerText: 'Answer 3',
+            onTap: () {},
+          ),
+          AnswerButton(
+            answerText: 'Answer 4',
+            onTap: () {},
+          ),
+        ],
+      ),
     );
   }
 }
